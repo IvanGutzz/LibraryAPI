@@ -2,7 +2,7 @@ from sqlalchemy import create_engine
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 
-SQLALCHEMY_DATABASE_URL = f"mysql+pymysql://root:aaAA##11root@localhost:3306/library"
+SQLALCHEMY_DATABASE_URL = f"mysql+pymysql://root:root@localhost:3306/library_api"
 
 engine = create_engine(
     SQLALCHEMY_DATABASE_URL
