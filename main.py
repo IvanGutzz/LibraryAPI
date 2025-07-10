@@ -2,13 +2,17 @@ import uvicorn
 from fastapi import FastAPI
 from database import engine, Base
 from app.routers import empresa
+from contextlib import asynccontextmanager
 
-app = FastAPI()
-
-@app.on_event("startup")
-def on_startup() -> None:
-    """Create database tables if they do not exist."""
+# Lifespan substitui os eventos 'startup' e 'shutdown'
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    # Executa ao iniciar a aplicação
     Base.metadata.create_all(bind=engine)
+    yield
+    # Aqui você pode colocar ações ao finalizar (opcional)
+
+app = FastAPI(lifespan=lifespan)
 
 @app.get("/")
 def check_api():
