@@ -11,7 +11,7 @@ class Book(Base):
     author = Column(String(128), nullable=False)
     isbn = Column(String(20), nullable=True)
     publisher = Column(String(128), nullable=True)
-    publication_year = Column(Integer, nullable=True)
+
 
     copies = relationship("BookCopy", back_populates="book")
 

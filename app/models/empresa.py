@@ -11,4 +11,3 @@ class Empresa(Base):
     nome_fantasia = Column(String(128), nullable=True)
     numero_contato = Column(String(11), nullable=True)
     email_contato = Column(String(64), nullable=True)
-    website = Column(String(128), nullable=True)

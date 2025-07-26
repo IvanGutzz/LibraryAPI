@@ -32,7 +32,6 @@ class Funcionario(User):
 
     id = Column(Integer, ForeignKey('user.id'), primary_key=True)
     role = Column(String(100), nullable=False)  # Cargo
-    employee_id = Column(String(50), unique=True, nullable=False)  # Matrícula
 
     __mapper_args__ = {
         'polymorphic_identity': 'funcionario',
